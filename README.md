@@ -1,8 +1,8 @@
 ## CSharpFiles
 
 Look at and run the example code which reads and writes to text files and binary files and makes use of records and dictionaries.<br/>
-Then complete the exercises below by adding code to FileExercises.cs
-You may add other classes if you wish
+Then complete the exercises below by adding code to FileExercises.cs<br/>
+You may add other classes if you wish<br/>
 
 ### 1. Sentences
 Create a sub program to ask the user for several sentences (until they just press Enter with an empty string)<br/>
