@@ -1,0 +1,14 @@
+Opening and closing files
+Before a file can be read from, or written to, it must be opened. When the operations are complete, the file must be closed. The operating system keeps track of the location of files that are open and will prevent other applications from trying to write to the same file at the same time.
+
+If you open your file in a text editor to check the contents, the file will be flagged by the operating system as open. You must close the file before you attempt to write to it with your program or you may get unexpected results.
+
+File handling modes
+Most systems allow you to open files in different modes. This is designed to protect the file from unplanned operations. Common modes are:
+
+Mode	Meaning
+Read	Allows the file to be read from, but not written to.
+Write	Allows the file to be written to. Data will be written from the beginning of the file, so any data that is already in the file will be overwritten. In most systems a new file will be created if the file does not already exist.
+Append	Allows the file to be written to. New data will be added to the end of the file. In most systems a new file will be created if the file does not already exist.
+File handling functions
+Most programming languages have a built-in library of functions that allow you to work with text files. There may be other modules that can be imported for specialist file handling applications. It is a good idea to familiarise yourself with the basic functions before you start your practical work
