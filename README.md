@@ -22,7 +22,7 @@ Piranha
 Sturgeon
 Bacteria 
 
-Output which tube stations are formed of two words, each beginning with the same letter? 
+Output which tube stations are formed of two words, each beginning with the same letter
 
 ### 3. Transactions
 Using the banking transaction from our work on objects as an example, model an account transaction as a simple record rather than a class.

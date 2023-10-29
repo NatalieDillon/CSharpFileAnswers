@@ -8,7 +8,7 @@ namespace CSharpFiles.Examples
 {
     public class Student
     {
-        public record StudentRecord(string name, int age);
+        public record StudentRecord(string Name, int Age);
 
         public static void WriteToBinaryFile(string fileName, List<StudentRecord> students)
         {
@@ -16,8 +16,8 @@ namespace CSharpFiles.Examples
             {
                 foreach (var student in students)
                 {
-                    binWriter.Write(student.name); // Writes a length prefixed string
-                    binWriter.Write(student.age); // Writes a 4 byte integer
+                    binWriter.Write(student.Name); // Writes a length prefixed string
+                    binWriter.Write(student.Age); // Writes a 4 byte integer
                 }
             }
         }
