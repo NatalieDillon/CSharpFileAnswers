@@ -39,28 +39,25 @@ namespace CSharpFiles.Exercises
 			if (File.Exists(fileName))
 			{
 				string[] lines = File.ReadAllLines(fileName);
-				Dictionary<string, int> stationsOnLine = new(); // Holds stations per line
+				Dictionary<string, int> stationsOnLine = []; // Holds stations per line
 
-				List<string> twoWordSameLetter = new();
+				List<string> twoWordSameLetter = [];
 
-				List<(string word, List<string> stations)> wordsNoLetters = new() // Holds stations with no matching letters
-				{
-					("Mackerel", new ()),
-					("Piranha", new ()),
-					("Sturgeon", new ()),
-					("Bacteria", new ())
-				};
+				// Holds stations with no matching letters
+				List<(string word, List<string> stations)> wordsNoLetters =			
+				[
+					("Mackerel", []),
+					("Piranha", []),
+					("Sturgeon", []),
+					("Bacteria",[])
+				];
 
 				foreach (string line in lines)
 				{
 					string[] values = line.Split(",");
-					for (int i = 1; i < values.Count(); i++) // Find station per line count
+					for (int i = 1; i < values.Length; i++) // Find station per line count
 					{
-						if (!stationsOnLine.ContainsKey(values[i]))
-						{
-							stationsOnLine.Add(values[i], 1);
-						}
-						else
+						if (!stationsOnLine.TryAdd(values[i], 1))
 						{
 							stationsOnLine[values[i]]++;
 						}
@@ -141,12 +138,12 @@ namespace CSharpFiles.Exercises
 		{
 			// Write Transactions
 			string fileName = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\transactions.csv";
-			List<TransactionRecord> records = new()
-			{
+			List<TransactionRecord> records =
+			[
 				new TransactionRecord(new DateTime(2023, 10, 25), -52, TransactionCategory.Gift, TransactionType.DebitCard, "Party Palace", "Halloween Gifts"),
 				new TransactionRecord(new DateTime(2023, 10, 20), -112, TransactionCategory.Groceries, TransactionType.DebitCard, "Waitrose", "Food shopping"),
 				new TransactionRecord(new DateTime(2023, 10, 15), 4234, TransactionCategory.Salary, TransactionType.StandingOrder, "St Pauls", "Monthly salary")
-			};
+			];
 
 			WriteToFile(fileName, records);
 
@@ -165,7 +162,7 @@ namespace CSharpFiles.Exercises
 			string fileName = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\numbers.bin";
 
 			Random random = new();
-			List<double> numbers = new();
+			List<double> numbers = [];
 			for (int i=0; i < 100; i++) // Generate 100 random numbers
 			{
 				double num = random.NextDouble()*1000;
@@ -186,7 +183,7 @@ namespace CSharpFiles.Exercises
 				Console.WriteLine(string.Join(',', bytes));
 			}
 
-			List<double> numbersRead = new ();
+			List<double> numbersRead = [];
 			using (BinaryReader reader = new(File.OpenRead(fileName)))
 			{
 				while (reader.BaseStream.Position < reader.BaseStream.Length)

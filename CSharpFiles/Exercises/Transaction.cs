@@ -47,7 +47,7 @@ namespace CSharpFiles.Exercises
 
 		public static List<TransactionRecord> ReadTransactions(string fileName)
 		{
-			List<TransactionRecord> transactions = new();
+			List<TransactionRecord> transactions = [];
 			string[] lines = File.ReadAllLines(fileName);
 			foreach (string  line in lines)
 			{

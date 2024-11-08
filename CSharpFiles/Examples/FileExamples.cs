@@ -31,8 +31,8 @@ namespace CSharpFiles.Examples
 
                 // Write Diary events
                 var newEvents = new List<Diary.DiaryRecord> {
-                    new Diary.DiaryRecord(new DateOnly(2022, 11, 11), new TimeOnly(10, 00), "Richmond Park", "Bike ride"),
-                    new Diary.DiaryRecord(new DateOnly(2022, 12, 25), new TimeOnly(09, 00), "Home", "Christmas Day", 12 * 60) };
+                    new (new DateOnly(2022, 11, 11), new TimeOnly(10, 00), "Richmond Park", "Bike ride"),
+                    new (new DateOnly(2022, 12, 25), new TimeOnly(09, 00), "Home", "Christmas Day", 12 * 60) };
                 Diary.WriteDiaryEvents(fileName, newEvents);
 
                 Console.WriteLine();
@@ -47,18 +47,14 @@ namespace CSharpFiles.Examples
             {
                string fileContents = File.ReadAllText(fileName);
                string[] words = fileContents.Split();
-			   Dictionary<string, int> wordFrequency = new();
+			   Dictionary<string, int> wordFrequency = [];
                foreach (string word in words)
                 {
                     if (!string.IsNullOrEmpty(word))
                     {
-                        if (wordFrequency.ContainsKey(word))
+                        if (!wordFrequency.TryAdd(word, 1))
                         {
                             wordFrequency[word]++;
-                        }
-                        else
-                        {
-                            wordFrequency.Add(word, 1);
                         }
                     }
                 }
@@ -75,9 +71,9 @@ namespace CSharpFiles.Examples
 
             // Write to binary file
             var students = new List<Student.StudentRecord> {
-                    new Student.StudentRecord("James", 15),
-                    new Student.StudentRecord("Rosie", 21),
-                    new Student.StudentRecord("Graham", 19) };
+                    new ("James", 15),
+                    new ("Rosie", 21),
+                    new ("Graham", 19) };
 
             Student.WriteToBinaryFile(fileName, students);
 
